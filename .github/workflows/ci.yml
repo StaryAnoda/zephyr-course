@@ -1,0 +1,31 @@
+name: Build Zephyr Applications
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+jobs:
+  build:
+    name: Build Zephyr Applications for nrf5340dk_nrf5340_cpuapp
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/zephyrproject-rtos/ci:v0.27.4
+    env:
+      CMAKE_PREFIX_PATH: /opt/toolchains
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: Zephyr
+      - name: Initialize west workspace
+        run: |
+          west init -l Zephyr
+          west update --narrow --fetch-opt=--depth=1
+      - name: Export Zephyr CMake package
+        run: |
+          west zephyr-export
+      - name: Build
+        run: |
+          west build \
+            --pristine \
+            --board nrf5340dk/nrf5340/cpuapp \
+            Zephyr/app
