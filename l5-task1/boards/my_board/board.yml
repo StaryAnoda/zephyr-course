@@ -1,0 +1,9 @@
+board:
+  name: my_board
+  full_name: MY-BOARD-NRF5340
+  vendor: custom
+  socs:
+  - name: 'nrf5340'
+    variants:
+    - name: 'ns'
+      cpucluster: 'cpuapp'
