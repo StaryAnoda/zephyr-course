@@ -1,0 +1,7 @@
+/ {
+    led_sensor0: led_sensor {
+        compatible = "custom,led-sensor";
+        led-gpios = <&gpio0 28 GPIO_ACTIVE_HIGH>;
+        status = "okay";
+    };
+};
