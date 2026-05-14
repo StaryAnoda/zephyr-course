@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: Apache-2.0
+
+description: On-board LED exposed as a Zephyr sensor device.
+ 
+compatible: "custom,led-sensor"
+ 
+include: base.yaml
+ 
+properties:
+  led-gpios:
+    type: phandle-array
+    required: true
