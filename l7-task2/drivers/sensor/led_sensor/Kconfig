@@ -1,0 +1,3 @@
+config LED_SENSOR
+    bool "LED Sensor"
+    default n

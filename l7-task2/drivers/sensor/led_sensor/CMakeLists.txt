@@ -1,0 +1,7 @@
+if (CONFIG_LED_SENSOR)
+    zephyr_library_sources(led_sensor.c)
+    zephyr_include_directories(.)
+    if (CONFIG_SHELL)
+        zephyr_library_sources(led_sensor_shell.c)
+    endif ()
+endif ()
